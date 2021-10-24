@@ -37,3 +37,9 @@ Spring Security Practice 01
 ## CSRF (XSRF)
 Cross Site Request Forgery
 ![img.png](img.png)
+是一種挾制使用者在當前已登入的Web應用程式上執行非本意的操作的攻擊方法。
+Forgery : The action of forging is a copy or imitation of a document, signature, banknote, or work of art.
+
+`XSS 利用的是使用者對指定網站的信任`
+
+`CSRF 利用的是網站對使用者網頁瀏覽器的信任。`

@@ -10,24 +10,31 @@ import java.util.List;
 public class StudentManagementController {
 
     private static final List<Student> STUDENTS = Arrays.asList(
-            new Student(1,"James Bond"),
-            new Student(2,"Maria Jones"),
-            new Student(3,"Anna Smith")
+            new Student(1, "James Bond"),
+            new Student(2, "Maria Jones"),
+            new Student(3, "Anna Smith")
     );
+
     @GetMapping
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return STUDENTS;
     }
+
     @PostMapping
-    public void registerNewStudent(@RequestBody Student student){
+    public void registerNewStudent(@RequestBody Student student) {
+        System.out.println("Register New Student :");
         System.out.println(student);
     }
+
     @DeleteMapping(path = "{studentId}")
-    public void deleteStudent(@PathVariable("studentId") Integer studentId){
+    public void deleteStudent(@PathVariable("studentId") Integer studentId) {
+        System.out.println("Delete student :");
         System.out.println(studentId);
     }
+
     @PutMapping(path = "{studentId}")
-    public void updateStudent(@PathVariable("studentId")Integer studentId, @RequestBody Student student){
-        System.out.printf("%s %s%n",studentId,student);
+    public void updateStudent(@PathVariable("studentId") Integer studentId, @RequestBody Student student) {
+        System.out.println("Update Student :");
+        System.out.printf("%s %s%n", studentId, student);
     }
 }

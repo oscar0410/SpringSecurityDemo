@@ -27,6 +27,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // antMatchers的順序會影響到Security的執行
         http
                 .csrf().disable()
                 .authorizeRequests()

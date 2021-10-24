@@ -1,8 +1,11 @@
 package com.example.SpringSecurityDemo.security;
 
 import com.google.common.collect.Sets;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Set;
+import java.util.stream.Collectors;
+
 import static com.example.SpringSecurityDemo.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
@@ -20,4 +23,21 @@ public enum ApplicationUserRole {
     public Set<ApplicationUserPermission> getPermissions() {
         return permissions;
     }
+
+    /**
+     * 設定 Authorities
+     * <pre>
+     * 將 permissions依序轉成SimpleGrantedAuthority物件
+     * 最後再將 role 加上
+     * </pre>
+     * @return Set<SimpleGrantedAuthority>
+     */
+    public Set<SimpleGrantedAuthority> getGrantedAuthorities(){
+        Set<SimpleGrantedAuthority> authorities = getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
+                .collect(Collectors.toSet());
+        authorities.add(new SimpleGrantedAuthority("ROLE_"+this.name()));
+        return authorities;
+    }
+
 }

@@ -5,6 +5,12 @@ Spring Security Practice 01
 每次請求，都會夾帶著登入者的帳號以及密碼(64編碼)
 ![image](https://user-images.githubusercontent.com/38812116/137628162-629584f6-bf4a-4468-9711-b86a15023567.png)
 
+## Form Basd Auth
+* 使用POST Method 提交 username和password
+* Server回應OK並在Cookie中參有SessionID
+* 之後每次的Request夾帶著SessionID來進行驗證
+![img.png](src/main/resources/static/FormBasedAuth.png)
+
 ## AntMatchers
 使用HttpSecurity.antMatchers要注意順序，順序會影響到Spring Security的判斷
 
@@ -36,7 +42,7 @@ Spring Security Practice 01
  
 ## CSRF (XSRF)
 Cross Site Request Forgery
-![img.png](img.png)
+![img.png](src/main/resources/static/CSRF.png)
 是一種挾制使用者在當前已登入的Web應用程式上執行非本意的操作的攻擊方法。
 Forgery : The action of forging is a copy or imitation of a document, signature, banknote, or work of art.
 
